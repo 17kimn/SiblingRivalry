@@ -3,7 +3,7 @@
 # Tic Tac Toe game
 # last update: 2/19/15
 __author__ = 'Natalie'
-# help from Spencer, Mr. Cochran, and Carey (kinda)
+# help from Spencer, Mr. Cochran, and Carey (kinda, really though?)
 
 import random
 import copy
