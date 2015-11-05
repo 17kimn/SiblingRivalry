@@ -209,5 +209,3 @@ def main():
         print(str(gameWon(grid)) + " wins the game!")
 
 main()
-
-
