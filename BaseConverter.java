@@ -57,6 +57,29 @@ public class BaseConverter {
 	 *  the result to the console window and writes data to the output stream. 
 	 */
 	public void inputConvertPrintWrite() {
+        File file = null;
+        Scanner in = null;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        int val = chooser.showOpenDialog(null);
+        if(val == JFileChooser.APPROVE_OPTION)  {
+            file = chooser.getSelectedFile();
+        }
+        try {
+            in = new Scanner(file);
+            String[] temp = new String[4];
+            while(in.hasNext()) {
+                temp = in.nextLine().split("\t");
+                System.out.print(temp[0] + " base " + temp[1] + " = ");
+                System.out.println(intToStr(strToInt(temp[0], temp[1]), Integer.parseInt(temp[3])) + " base " + temp[3]);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            in.close();
+        }
 	}
 	
 	/**public static void main(String[]args) {
