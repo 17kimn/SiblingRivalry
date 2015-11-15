@@ -14,6 +14,9 @@ digit(char ch, int base) that returns the numeric value of the digit in the spec
 public class Ch8 {
 // here's my method, but it doesn't work 
 	public static boolean isValidISBN(String isbn) {
+        if(isbn.length() != 13)
+            return false;
+        
         int sum = 0;
 		for(int i = 0; i < isbn.length(); i++)    {
             if(i % 2 == 0)
