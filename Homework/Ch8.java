@@ -14,20 +14,31 @@ digit(char ch, int base) that returns the numeric value of the digit in the spec
 public class Ch8 {
 // here's my method, but it doesn't work 
 	public static boolean isValidISBN(String isbn) {
-		String str = "";
-		str += isbn.substring(0,3);
-		str += isbn.substring(4, 5); 
-		str += isbn.substring(6,8); 
-		str += isbn.substring(9, 15); 
-		str += isbn.substring(16, isbn.length());
-		int sum = 0; 
-		for(int i = 1; i < isbn.length(); i+=2) {
-			sum += Integer.parseInt(str.substring(i, i+1)); 
-		}
-		for(int n = 0; n < isbn.length(); n+=2) {
-			sum += 3*(Integer.parseInt(str.substring(n, n+1))); 
-		}
-		if((sum%10) == 0); 
-			return true; 
+        int sum = 0;
+		for(int i = 0; i < isbn.length(); i++)    {
+            if(i % 2 == 0)
+                sum += Character.digit(isbn.substring(i, i+1));
+            else
+                sum += 3 * Character.digit(isbn.substring(i, i+1));
+        }
+        return (sum % 10 == 0) ? true : false;
+
+        /*
+                String str = "";
+        str += isbn.substring(0,3);
+        str += isbn.substring(4, 5); 
+        str += isbn.substring(6,8); 
+        str += isbn.substring(9, 15); 
+        str += isbn.substring(16, isbn.length());
+        int sum = 0; 
+        for(int i = 1; i < isbn.length(); i+=2) {
+            sum += Integer.parseInt(str.substring(i, i+1)); 
+        }
+        for(int n = 0; n < isbn.length(); n+=2) {
+            sum += 3*(Integer.parseInt(str.substring(n, n+1))); 
+        }
+        if((sum%10) == 0); 
+            return true; 
+        */
 	}
 }
