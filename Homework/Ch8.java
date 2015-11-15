@@ -17,9 +17,9 @@ public class Ch8 {
         int sum = 0;
 		for(int i = 0; i < isbn.length(); i++)    {
             if(i % 2 == 0)
-                sum += Character.digit(isbn.substring(i, i+1));
+                sum += Character.digit(isbn.substring(i, i+1), 10);
             else
-                sum += 3 * Character.digit(isbn.substring(i, i+1));
+                sum += 3 * Character.digit(isbn.substring(i, i+1), 10);
         }
         return (sum % 10 == 0) ? true : false;
 
