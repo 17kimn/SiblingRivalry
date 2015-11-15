@@ -16,13 +16,15 @@ public class Ch8 {
 	public static boolean isValidISBN(String isbn) {
         if(isbn.length() != 13)
             return false;
-        
+
+        char[] temp = isbn.toCharArray();
+
         int sum = 0;
-		for(int i = 0; i < isbn.length(); i++)    {
+		for(int i = 0; i < temp.length; i++)    {
             if(i % 2 == 0)
-                sum += Character.digit(isbn.substring(i, i+1), 10);
+                sum += Character.digit(temp[i], 10);
             else
-                sum += 3 * Character.digit(isbn.substring(i, i+1), 10);
+                sum += 3 * Character.digit(temp[i], 10);
         }
         return (sum % 10 == 0) ? true : false;
 
